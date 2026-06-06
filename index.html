@@ -403,22 +403,47 @@ function submitOrder() {
     return;
   }
 
-  let msg = '🏠 *طلب جديد — Smart Click*\n';
-  msg += '━━━━━━━━━━━━━━━━\n';
-  if (name)  msg += '👤 *الاسم:* ' + name + '\n';
-  msg += '📞 *الهاتف:* ' + phone + '\n';
-  msg += '📍 *الولاية:* ' + state + '\n';
-  msg += '🗺️ *المنطقة:* ' + area + '\n';
-  if (loc)         msg += '📌 *موقع المنزل:* ' + loc + '\n';
-  msg += '🏗️ *مرحلة البناء:* ' + stage + '\n';
-  if (electrician) msg += '⚡ *رقم الكهربائي:* ' + electrician + '\n';
-  msg += '━━━━━━━━━━━━━━━━\n';
-  msg += '🛒 *المنتجات المطلوبة:*\n';
-  selected.forEach((p, i) => { msg += (i+1) + '. ' + p.name + ' — الكمية: ' + p.qty + '\n'; });
-  msg += '━━━━━━━━━━━━━━━━\n';
+  // Map product keywords to icons
+  function getProductIcon(name) {
+    if (name.includes('كاميرا') || name.includes('كاميرات')) return '📷';
+    if (name.includes('مفتاح الإضاءة') || name.includes('إضاءة')) return '💡';
+    if (name.includes('تكييف') || name.includes('سخان')) return '❄️';
+    if (name.includes('شاشة')) return '🖥️';
+    if (name.includes('إنتركوم') || name.includes('انتركوم')) return '🔔';
+    if (name.includes('قفل') || name.includes('باب الكراج')) return '🔒';
+    if (name.includes('حماية') || name.includes('غاز') || name.includes('حرائق') || name.includes('حساس')) return '🛡️';
+    if (name.includes('إنترنت') || name.includes('سماعات')) return '🌐';
+    return '📦';
+  }
 
-  if (notes) { msg += '📝 *ملاحظات:* ' + notes + '\n'; msg += '━━━━━━━━━━━━━━━━\n'; }
-  msg += '✅ سيتم إرسال الكوتيشن شامل الأسعار وخدمة التركيب.';
+  let msg = 'السلام عليكم ورحمة الله وبركاته 🌿\n\n';
+  msg += '🏠 *طلب جديد — Smart Click*\n';
+  msg += '━━━━━━━━━━━━━━━━\n\n';
+
+  msg += '👤 *بيانات العميل*\n';
+  if (name)       msg += '┃ الاسم: ' + name + '\n';
+  msg +=           '┃ الهاتف: ' + phone + '\n';
+  msg +=           '┃ الولاية: ' + state + '\n';
+  msg +=           '┃ المنطقة: ' + area + '\n';
+  if (loc)        msg += '┃ موقع المنزل: ' + loc + '\n';
+  msg +=           '┃ مرحلة البناء: ' + stage + '\n';
+  if (electrician) msg += '┃ رقم الكهربائي: ' + electrician + '\n';
+
+  msg += '\n━━━━━━━━━━━━━━━━\n\n';
+  msg += '🛒 *المنتجات المطلوبة*\n';
+  selected.forEach((p) => {
+    const icon = getProductIcon(p.name);
+    msg += icon + ' ' + p.name + '\n';
+    msg += '   ↳ الكمية: ' + p.qty + '\n';
+  });
+
+  msg += '\n━━━━━━━━━━━━━━━━\n';
+  if (notes) {
+    msg += '\n📝 *ملاحظات وتفضيلات إضافية*\n';
+    msg += '┃ ' + notes + '\n\n';
+    msg += '━━━━━━━━━━━━━━━━\n';
+  }
+  msg += '\n✅ سيتم إرسال الكوتيشن شامل الأسعار وخدمة التركيب.';
 
   window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
 }
