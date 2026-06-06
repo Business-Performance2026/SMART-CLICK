@@ -195,41 +195,23 @@
         <label>الولاية <span class="required-star">*</span></label>
         <select id="state">
           <option value="">اختر الولاية</option>
-          <optgroup label="محافظة مسقط">
-            <option>مسقط</option><option>بوشر</option><option>السيب</option>
-            <option>مطرح</option><option>العامرات</option><option>قريات</option>
-          </optgroup>
-          <optgroup label="محافظة الداخلية">
-            <option>نزوى</option><option>بهلاء</option><option>إبراء</option>
-            <option>سمائل</option><option>الرستاق</option><option>العوابي</option>
-            <option>منح</option><option>أدم</option><option>الحمراء</option>
-            <option>الرسيل</option><option>إزكي</option><option>بدبد</option>
-          </optgroup>
-          <optgroup label="محافظة شمال الباطنة">
-            <option>صحار</option><option>شناص</option><option>الخابورة</option>
-            <option>المصنعة</option><option>بركاء</option><option>السويق</option>
-            <option>نخل</option><option>وادي المعاول</option>
-          </optgroup>
-          <optgroup label="محافظة الظاهرة">
-            <option>عبري</option><option>ينقل</option><option>ضنك</option>
-          </optgroup>
-          <optgroup label="محافظة البريمي">
-            <option>البريمي</option><option>مهدة</option><option>الوجاجة</option>
-          </optgroup>
-          <optgroup label="محافظة مسندم">
-            <option>خصب</option><option>بخاء</option><option>دبا</option><option>مدحاء</option>
-          </optgroup>
-          <optgroup label="محافظة الشرقية">
-            <option>صور</option><option>إبراء</option><option>المضيبي</option>
-            <option>دماء والطائيين</option><option>جعلان بني بوعلي</option>
-          </optgroup>
-          <optgroup label="محافظة الوسطى">
-            <option>هيماء</option><option>الدقم</option><option>مهوت</option>
-          </optgroup>
-          <optgroup label="محافظة ظفار">
-            <option>صلالة</option><option>طاقة</option><option>سدح</option>
-            <option>شليم</option><option>مرباط</option><option>رخيوت</option>
-          </optgroup>
+          <option>مسقط</option><option>بوشر</option><option>السيب</option>
+          <option>مطرح</option><option>العامرات</option><option>قريات</option>
+          <option>نزوى</option><option>بهلاء</option><option>إبراء</option>
+          <option>سمائل</option><option>الرستاق</option><option>العوابي</option>
+          <option>منح</option><option>أدم</option><option>الحمراء</option>
+          <option>الرسيل</option><option>إزكي</option><option>بدبد</option>
+          <option>صحار</option><option>شناص</option><option>الخابورة</option>
+          <option>المصنعة</option><option>بركاء</option><option>السويق</option>
+          <option>نخل</option><option>وادي المعاول</option>
+          <option>عبري</option><option>ينقل</option><option>ضنك</option>
+          <option>البريمي</option><option>مهدة</option><option>الوجاجة</option>
+          <option>خصب</option><option>بخاء</option><option>دبا</option><option>مدحاء</option>
+          <option>صور</option><option>المضيبي</option>
+          <option>دماء والطائيين</option><option>جعلان بني بوعلي</option>
+          <option>هيماء</option><option>الدقم</option><option>مهوت</option>
+          <option>صلالة</option><option>طاقة</option><option>سدح</option>
+          <option>شليم</option><option>مرباط</option><option>رخيوت</option>
         </select>
       </div>
       <div class="field">
@@ -273,23 +255,15 @@
 
   <!-- Notes & System -->
   <div class="card">
-    <div class="card-title"><div class="icon">📝</div>ملاحظات ونظام التشغيل</div>
+    <div class="card-title"><div class="icon">📝</div>ملاحظات وتفضيلات إضافية</div>
+    <div style="font-size:0.83rem;color:var(--gray);margin-bottom:12px;line-height:1.7;">
+      يمكنك تحديد <strong>الألوان المفضلة</strong> للمنتجات، أي <strong>ميزات إضافية</strong> تريدها، أو أي تفاصيل تساعدنا على تقديم أفضل عرض.
+    </div>
     <div class="field">
-      <textarea id="notes" placeholder="اكتب أي ملاحظات أو متطلبات إضافية..."></textarea>
+      <textarea id="notes" placeholder="مثال: اللون المفضل للمفاتيح (أبيض، أسود، ذهبي...)، ميزات إضافية مطلوبة، تفضيلات خاصة بالتصميم، أو أي ملاحظات أخرى..."></textarea>
     </div>
     <div class="notice-box">
       سيتم إرسال الكوتيشن إليك بعد إرسال الطلب، شامل الأسعار وخدمة التركيب
-    </div>
-    <div style="font-size:0.88rem;font-weight:700;color:var(--gray);margin-bottom:10px;">اختر نوع النظام</div>
-    <div class="system-options">
-      <div class="system-option" id="opt-wifi" onclick="toggleSys('wifi')">
-        <div class="sys-tick">✓</div>
-        <span>📶 نظام WiFi</span>
-      </div>
-      <div class="system-option" id="opt-zigbee" onclick="toggleSys('zigbee')">
-        <div class="sys-tick">✓</div>
-        <span>🔗 نظام Zigbee</span>
-      </div>
     </div>
   </div>
 
@@ -302,12 +276,6 @@
 
 <script>
 const WHATSAPP_NUMBER = "96894446300";
-const sysState = { wifi: false, zigbee: false };
-
-function toggleSys(type) {
-  sysState[type] = !sysState[type];
-  document.getElementById('opt-' + type).classList.toggle('checked', sysState[type]);
-}
 
 const categories = [
   { label: "📷 كاميرات المراقبة", products: [
@@ -449,10 +417,6 @@ function submitOrder() {
   selected.forEach((p, i) => { msg += (i+1) + '. ' + p.name + ' — الكمية: ' + p.qty + '\n'; });
   msg += '━━━━━━━━━━━━━━━━\n';
 
-  const systems = [];
-  if (sysState.wifi)   systems.push('WiFi');
-  if (sysState.zigbee) systems.push('Zigbee');
-  if (systems.length)  { msg += '⚙️ *نوع النظام:* ' + systems.join(' + ') + '\n'; msg += '━━━━━━━━━━━━━━━━\n'; }
   if (notes) { msg += '📝 *ملاحظات:* ' + notes + '\n'; msg += '━━━━━━━━━━━━━━━━\n'; }
   msg += '✅ سيتم إرسال الكوتيشن شامل الأسعار وخدمة التركيب.';
 
